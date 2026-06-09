@@ -1,39 +1,146 @@
-# 🧠 SummarizeAI Pro
+# AI Text Summarization System using NLP and Transformer Models
 
-## Quick Start
+## Overview
+
+AI Text Summarization System is an NLP-based web application that generates concise and meaningful summaries from lengthy textual content. The system leverages the BART Transformer model to perform abstractive text summarization while preserving the core meaning of the original text.
+
+In addition to summarization, the application provides multilingual translation, text-to-speech conversion, keyword extraction, vocabulary simplification, and evaluation metrics to enhance accessibility and user understanding.
+
+## Features
+
+* Abstractive text summarization using BART (facebook/bart-large-cnn)
+* Supports text input, file upload, and URL-based content extraction
+* Simplified summary generation using synonym replacement
+* Multilingual translation support
+* Text-to-Speech (TTS) audio generation
+* Keyword extraction with meanings
+* Spelling correction and text preprocessing
+* Summary quality evaluation metrics
+* Interactive Streamlit-based user interface
+
+## Tech Stack
+
+### Frontend
+
+* Streamlit
+
+### Backend
+
+* Python
+
+### NLP & Machine Learning
+
+* Transformers (Hugging Face)
+* BART (facebook/bart-large-cnn)
+* PyTorch
+* NLTK
+* spaCy
+
+### Additional Libraries
+
+* BeautifulSoup
+* Deep Translator
+* gTTS
+* PySpellChecker
+* Requests
+
+## System Workflow
+
+1. User enters text, uploads a file, or provides a URL.
+2. Input text is extracted and preprocessed.
+3. Text is divided into manageable chunks.
+4. BART model generates a professional summary.
+5. Simplified summary is created using rule-based synonym replacement.
+6. Keywords and important vocabulary are extracted.
+7. Users can translate summaries into multiple languages.
+8. Text-to-Speech converts summaries into audio.
+9. Evaluation metrics are calculated and displayed.
+
+## Project Structure
+
+```bash
+AI-Text-Summarizer/
+│
+├── app.py
+├── app/
+│   ├── ui.py
+│
+├── utils/
+│   ├── extractor.py
+│   ├── nlp.py
+│   ├── translator.py
+│   ├── audio.py
+│
+├── assets/
+│   ├── logo.png
+│
+├── requirements.txt
+└── README.md
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/AI-Text-Summarizer.git
+cd AI-Text-Summarizer
+```
+
+Install dependencies:
+
 ```bash
 pip install -r requirements.txt
+```
+
+## Run the Application
+
+Using Streamlit:
+
+```bash
 streamlit run app.py
 ```
 
-## Features
-- **Dual summaries**: Professional (BART) + Simplified (deterministic synonym replacement)
-- **Zero hallucination**: Simplified version uses a curated synonym map — never invents words or mixes languages
-- **Word Change Map**: Table showing every professional term → simple word + plain meaning
-- **5 Accuracy Rings**: Overall, Retention, Simplicity, Compression, Flesch Readability
-- **8 Stat Cards**: Word counts, read times, compression %, words simplified
-- **100+ Language Translation**: Google Translate via deep-translator (no API key)
-- **Audio Playback**: gTTS text-to-speech, uses translated text automatically
-- **3D Glassmorphism UI**: Dark purple/teal theme, Orbitron font, animated gradient rings
+The application will start on:
 
-## Project Structure
-```
-summarizer_pro/
-├── app.py                    # Entry point
-├── requirements.txt
-├── .streamlit/config.toml    # Dark theme
-├── app/
-│   ├── ui.py                 # All 5 tabs
-│   └── styles.py             # 3D CSS
-└── utils/
-    ├── nlp.py                # BART + synonym simplifier + metrics
-    ├── extractor.py          # URL / file text extraction
-    ├── translator.py         # 100+ languages
-    └── audio.py              # gTTS TTS
+```text
+http://localhost:8501
 ```
 
-## Why no T5 for simplification?
-T5 was causing **hallucination** — generating random words, mixing languages,
-and changing names (e.g. "Modi" → "Lodi"). The deterministic synonym-map approach
-is 100% accurate: it only replaces known complex words with their simpler equivalents
-while leaving names, numbers, and sentence structure intact.
+## Evaluation Metrics
+
+The system evaluates generated summaries using:
+
+* Retention Score
+* Compression Percentage
+* Simplicity Score
+* Readability Score
+* Overall Accuracy Score
+
+## Applications
+
+* Academic research summarization
+* News article summarization
+* Report analysis
+* Content review
+* Educational learning assistance
+* Multilingual information access
+
+## Future Enhancements
+
+* PDF and DOCX document summarization
+* Real-time web content summarization
+* Custom summary length selection
+* Domain-specific summarization
+* Mobile application deployment
+* Advanced Transformer model integration
+
+## Authors
+
+* S. Gayathri
+* K. Dharani
+* N. Harshitha
+
+## License
+
+This project is developed for educational and research purposes.
